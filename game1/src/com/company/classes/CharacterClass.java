@@ -2,8 +2,17 @@ package com.company.classes;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.String;
+
+
 
 public abstract class CharacterClass implements BaseClass {
+    public int leftKey;
+    public int rightkey;
+    public int upKey;
+    public int downKey;
+    public int leftAttackKey;
+    public int rightAttackKey;
     private int healthPoints = 200;
     private int manaPoints;
     private int level;
@@ -12,19 +21,19 @@ public abstract class CharacterClass implements BaseClass {
     private String name;
     private int maxHealthPoints;
     private int maxManaPoints;
-    private int leftKey, rightKey, upKey, downKey, leftAttackKey, rightAttackKey;
 
     public CharacterClass(String name, int x, int y, int leftKey, int rightKey, int upKey, int downKey, int leftAttackKey, int rightAttackKey) {
         this.name = name;
         this.x = x;
         this.y = y;
         this.leftKey = leftKey;
+        this.rightkey = rightKey;
         this.upKey = upKey;
         this.downKey = downKey;
         this.leftAttackKey = leftAttackKey;
         this.rightAttackKey = rightAttackKey;
-        this.rightKey = rightKey;
     }
+
 
     public void setHealthPoints(int healthPoints) {
         if (healthPoints < 0) {
@@ -187,4 +196,16 @@ public abstract class CharacterClass implements BaseClass {
     public void setAttackRightImage() {
         this.image = this.attackRightImage;
     }
+    public void tryChangePosition(int newX, int newY) {
+        this.x = newX;
+        this.y = newY;
+    }
+
+    public abstract void left();
+
+    public abstract void right();
+
+    public abstract void up();
+
+    public abstract void down();
 }

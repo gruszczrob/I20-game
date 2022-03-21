@@ -33,18 +33,24 @@ public class GameField extends JPanel {
         public void keyPressed(KeyEvent e) {
             super.keyPressed(e);
             int key = e.getKeyCode();
+
             for (CharacterClass player : players) {
-                if (key == KeyEvent.VK_LEFT) {
-                    player.setX(player.getX() - 40);
+                System.out.println(key + " => " + player.leftKey);
+                if (key == player.leftKey) {
+                    //player.setX(player.getX() - 40);
+                    player.left();
                 }
-                if (key == KeyEvent.VK_RIGHT) {
-                    player.setX(player.getX() + 40);
+                if (key == player.rightkey) {
+                    //player.setX(player.getX() + 40);
+                    player.right();
                 }
-                if (key == KeyEvent.VK_UP) {
-                    player.setY(player.getY() - 40);
+                if (key == player.upKey) {
+                    //player.setY(player.getY() - 40);
+                    player.up();
                 }
-                if (key == KeyEvent.VK_DOWN) {
-                    player.setY(player.getY() + 40);
+                if (key == player.downKey) {
+                    //player.setY(player.getY() + 40);
+                    player.down();
                 }
                 if (key == KeyEvent.VK_O) {
                     player.setAttackLeftImage();
